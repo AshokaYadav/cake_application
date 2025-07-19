@@ -1,103 +1,572 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import Image from 'next/image';
+import { FiPlus } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiClock, FiMapPin, FiPhone, FiLink } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok,
+  FaSnapchatGhost,
+} from 'react-icons/fa';
+import CustomerReviews from './components/Home/CustomerReviews';
+import SimilarRestaurants from './components/Home/SimilarRestaurants';
+
+export default function HomePage() {
+  const categories = [
+    'Offers',
+    'Burgers',
+    'Fries',
+    'Snacks',
+    'Salads',
+    'Cold drinks',
+    'Happy Meal®',
+    'Desserts',
+    'Hot drinks',
+    'Sauces',
+    'Orbit®',
+  ];
+  const [activeCategory, setActiveCategory] = useState('Offers');
+
+  const offers = [
+    {
+      title: 'First Order Discount',
+      location: "McDonald's East London",
+      discount: '-20%',
+      image: '/offers/offer1.png',
+    },
+    {
+      title: 'Vegan Discount',
+      location: "McDonald's East London",
+      discount: '-20%',
+      image: '/offers/offer2.png',
+    },
+    {
+      title: 'Free ice Cream Offer',
+      location: "McDonald's East London",
+      discount: '-100%',
+      image: '/offers/offer3.png',
+    },
+  ];
+
+  const burgers = [
+    {
+      title: 'Royal Cheese Burger with extra Fries',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/burger.png',
+    },
+  ];
+
+  const fries = [
+    {
+      title: 'Royal Cheese Burger with extra Fries',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/fries.png',
+    },
+  ];
+
+
+
+  const coldrink = [
+    {
+      title: 'Royal Cheese Burger with extra Fries',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+    {
+      title: 'The classics for 3',
+      desc: '1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium sized French Fries, 3 cold drinks',
+      price: 'GBP 23.10',
+      image: '/burgers/coldrink.png',
+    },
+  ];
+
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-white text-black">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Promo Bar */}
+      <div className="flex justify-between items-center px-4 py-2 bg-yellow-100 text-sm">
+        <p>🌟 Get 5% Off your first order, <span className="text-orange-600 font-semibold">Promo: ORDER5</span></p>
+        <p>📍 Regent Street, A4, A4201, London <span className="text-orange-500 underline ml-2 cursor-pointer">Change Location</span></p>
+      </div>
+
+      {/* Navbar */}
+      <div className="flex justify-between items-center p-4 shadow-sm text-sm">
+        <div className="flex gap-6 font-medium">
+          <span className="text-black">Home</span>
+          <span className="text-black">Special Offers</span>
+          <span className="text-orange-500 font-bold">Restaurants</span>
+          <span className="text-black">Track Order</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="flex items-center gap-6">
+          <button className="bg-black text-white px-4 py-1 rounded-full">Login/Signup</button>
+          <div className="bg-green-600 text-white px-3 py-1 rounded-full">23 Items</div>
+          <div className="bg-green-700 text-white px-3 py-1 rounded-full">GBP 79.89</div>
+        </div>
+      </div>
+
+      {/* McDonald's Banner */}
+      <div className="relative bg-black text-white rounded-xl overflow-hidden mt-6 mx-4 md:mx-10">
+        <div className="absolute inset-0 opacity-40">
+          <Image src="/Home/Group.jpg" alt="Background Burger" fill className="object-cover" />
+        </div>
+        <div className="relative z-10 flex flex-col md:flex-row justify-between items-center px-6 py-8 gap-6">
+          <div className="space-y-3 max-w-md">
+            <p className="text-sm text-white/70">I’m lovin’ it!</p>
+            <h1 className="text-3xl font-bold">McDonald’s East London</h1>
+            <div className="flex gap-4 flex-wrap text-sm">
+              <span className="bg-white text-black px-3 py-1 rounded-full">
+                🍔 Minimum Order: 12 GBP
+              </span>
+              <span className="bg-white text-black px-3 py-1 rounded-full">
+                🚲 Delivery in 20-25 Minutes
+              </span>
+            </div>
+            <button className="bg-orange-500 text-white font-semibold px-4 py-2 rounded-full text-sm">
+              🕒 Open until 3:00 AM
+            </button>
+          </div>
+          <div className="relative w-64">
+            <Image
+              src="/Home/Rectangle.png"
+              alt="Burger and Fries"
+              width={300}
+              height={200}
+              className="rounded-lg"
+            />
+            <div className="absolute top-2 left-2 bg-white text-black text-sm px-2 py-1 rounded shadow">
+              ⭐ 3.4 <span className="text-gray-500">(1,360 reviews)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔥 Category Menu */}
+      <div className="bg-orange-500 py-3 px-4 mt-6 overflow-x-auto whitespace-nowrap">
+        <div className="flex gap-4">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`text-white font-semibold px-4 py-1 rounded-full transition-all duration-200 ${activeCategory === cat ? 'bg-black text-white' : 'hover:bg-black/30'
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Search Heading */}
+      <div className="px-4 md:px-10 mt-6 mb-4 flex justify-between items-center">
+        <h2 className="text-lg font-bold">All Offers from McDonald’s East London</h2>
+        <input
+          type="text"
+          placeholder="🔍 Search from menu..."
+          className="border px-4 py-2 rounded-full text-sm outline-none w-64"
+        />
+      </div>
+
+      {/* Offers Section */}
+      <div className="px-4 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {offers.map((offer, index) => (
+          <div key={index} className="relative rounded-xl overflow-hidden shadow-md">
+            <Image src={offer.image} alt={offer.title} width={400} height={200} className="object-cover w-full h-48" />
+            <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
+              {offer.discount}
+            </div>
+            <div className="absolute bottom-2 left-2 text-white">
+              <p className="text-xs">{offer.location}</p>
+              <h3 className="text-lg font-bold">{offer.title}</h3>
+            </div>
+            <div className="absolute bottom-2 right-2">
+              <button className="bg-white p-1 rounded-full shadow">
+                <FiPlus />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Burgers Section */}
+      <div className="px-4 md:px-10 mt-10">
+        <h2 className="text-xl font-bold mb-4">Burgers</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {burgers.map((burger, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+              {/* Left Content */}
+              <div className="flex-1 pr-4">
+                <h3 className="text-lg font-semibold mb-2">{burger.title}</h3>
+                <p className="text-sm text-gray-600 mb-2">{burger.desc}</p>
+                <p className="font-bold">{burger.price}</p>
+              </div>
+
+              {/* Right Image and Button */}
+              <div className="flex flex-col items-center">
+                <Image
+                  src={burger.image}
+                  alt={burger.title}
+                  width={80}
+                  height={80}
+                  className="rounded mb-2"
+                />
+                <button className="bg-black text-white p-2 rounded-full">
+                  <FiPlus />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="px-4 md:px-10 mt-10">
+        <h2 className="text-xl font-bold mb-4 text-amber-400">Fries</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {fries.map((burger, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+              {/* Left Content */}
+              <div className="flex-1 pr-4">
+                <h3 className="text-lg font-semibold mb-2">{burger.title}</h3>
+                <p className="text-sm text-gray-600 mb-2">{burger.desc}</p>
+                <p className="font-bold">{burger.price}</p>
+              </div>
+
+              {/* Right Image and Button */}
+              <div className="flex flex-col items-center">
+                <Image
+                  src={burger.image}
+                  alt={burger.title}
+                  width={80}
+                  height={80}
+                  className="rounded mb-2"
+                />
+                <button className="bg-black text-white p-2 rounded-full">
+                  <FiPlus />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+      <div className="px-4 md:px-10 mt-10">
+        <h2 className="text-xl font-bold mb-4 text-amber-300">coldrink</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {coldrink.map((burger, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+              {/* Left Content */}
+              <div className="flex-1 pr-4">
+                <h3 className="text-lg font-semibold mb-2">{burger.title}</h3>
+                <p className="text-sm text-gray-600 mb-2">{burger.desc}</p>
+                <p className="font-bold">{burger.price}</p>
+              </div>
+
+              {/* Right Image and Button */}
+              <div className="flex flex-col items-center">
+                <Image
+                  src={burger.image}
+                  alt={burger.title}
+                  width={80}
+                  height={80}
+                  className="rounded mb-2"
+                />
+                <button className="bg-black text-white p-2 rounded-full">
+                  <FiPlus />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+
+
+
+      <div className="flex flex-col gap-8 p-6 bg-gray-100">
+        {/* Top Section */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Delivery Information */}
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h2 className="flex items-center gap-2 font-semibold text-lg mb-4">
+              <FiMapPin className="text-indigo-600" />
+              Delivery information
+            </h2>
+            <ul className="text-sm space-y-1">
+              <li><strong>Monday:</strong> 12:00 AM–3:00 AM, 8:00 AM–3:00 AM</li>
+              <li><strong>Tuesday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Wednesday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Thursday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Friday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Saturday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Sunday:</strong> 8:00 AM–12:00 AM</li>
+            </ul>
+            <p className="mt-4 text-sm">
+              <strong>Estimated time until delivery:</strong> 20 min
+            </p>
+          </div>
+
+          {/* Contact Information */}
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h2 className="flex items-center gap-2 font-semibold text-lg mb-4">
+              <FiPhone className="text-indigo-600" />
+              Contact information
+            </h2>
+            <p className="text-sm mb-3">
+              If you have allergies or other dietary restrictions, please contact the restaurant. The restaurant will provide food-specific information upon request.
+            </p>
+            <p className="text-sm mb-2"><strong>Phone number:</strong> +934443-43</p>
+            <p className="text-sm"><strong>Website:</strong> <a href="http://mcdonalds.uk/" className="text-blue-500 underline">http://mcdonalds.uk/</a></p>
+          </div>
+
+          {/* Operational Times */}
+          <div className="bg-indigo-950 text-white shadow-md rounded-lg p-6">
+            <h2 className="flex items-center gap-2 font-semibold text-lg mb-4">
+              <FiClock className="text-white" />
+              Operational Times
+            </h2>
+            <ul className="text-sm space-y-1">
+              <li><strong>Monday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Tuesday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Wednesday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Thursday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Friday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Saturday:</strong> 8:00 AM–3:00 AM</li>
+              <li><strong>Sunday:</strong> 8:00 AM–3:00 AM</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Section with Map */}
+        <div className="relative rounded-xl overflow-hidden shadow-md">
+          <iframe
+            className="w-full h-96"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.7546461239242!2d-0.0903!3d51.5046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876034b8e1e3f61%3A0x646f7c33ae6ec6a!2sMcDonald's%20South%20London!5e0!3m2!1sen!2sin!4v1625560077799!5m2!1sen!2sin"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+
+          {/* Info Box Overlay */}
+          <div className="absolute top-6 left-6 bg-indigo-950 text-white p-5 rounded-xl shadow-lg max-w-sm">
+            <h3 className="text-xl font-bold">McDonald's</h3>
+            <p className="text-sm text-yellow-400 mb-2">South London</p>
+            <p className="text-sm mb-1">Tooley St, London Bridge, London SE1 2TF, United Kingdom</p>
+            <p className="text-sm"><strong>Phone number:</strong> +934443-43</p>
+            <p className="text-sm"><strong>Website:</strong> <a href="http://mcdonalds.uk/" className="text-blue-400 underline">http://mcdonalds.uk/</a></p>
+          </div>
+
+          {/* Location Pin on Map */}
+          <div className="absolute top-16 right-10 bg-white p-3 rounded-lg shadow-md flex items-center gap-2">
+            <FiMapPin className="text-orange-600" />
+            <span className="text-sm font-medium">McDonald's<br />South London</span>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div className="  py-8 bg-gray-100">
+        {/* Customer Reviews */}
+        <CustomerReviews />
+
+        {/* Similar Restaurants */}
+        <SimilarRestaurants />
+      </div>
+
+
+
+      <footer className="bg-gray-100 text-gray-800">
+        <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Logo and App Links */}
+          <div>
+            <h2 className="text-3xl font-bold mb-3">
+              Order<span className="text-black">.UK</span>
+            </h2>
+            <div className="flex gap-2 mb-3">
+              <img
+                src="footer/Group.png"
+                alt="App Store"
+                className="w-28 h-9 object-contain"
+              />
+              <img
+                src="/footer/Group.png"
+                alt="Google Play"
+                className="w-28 h-9 object-contain"
+              />
+            </div>
+            <p className="text-sm">
+              Company # 4900393-445, Registered with <br />
+              House of companies.
+            </p>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h3 className="font-semibold text-sm mb-2">
+              Get Exclusive Deals in your Inbox
+            </h3>
+            <div className="flex mb-2">
+              <input
+                type="email"
+                placeholder="youremail@gmail.com"
+                className="flex-1 px-3 py-2 rounded-l-md text-sm outline-none border border-gray-300"
+              />
+              <button className="bg-orange-400 px-4 py-2 rounded-r-md text-white text-sm font-medium hover:bg-orange-500">
+                Subscribe
+              </button>
+            </div>
+            <p className="text-xs">
+              we won't spam, read our email{' '}
+              <span className="underline cursor-pointer">policy</span>
+            </p>
+            <div className="flex gap-3 mt-3 text-lg text-gray-700">
+              <FaFacebookF className="hover:text-black cursor-pointer" />
+              <FaInstagram className="hover:text-black cursor-pointer" />
+              <FaTiktok className="hover:text-black cursor-pointer" />
+              <FaSnapchatGhost className="hover:text-black cursor-pointer" />
+            </div>
+          </div>
+
+          {/* Legal Pages */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Legal Pages</h4>
+            <ul className="text-sm space-y-1">
+              <li className="hover:underline cursor-pointer">
+                Terms and conditions
+              </li>
+              <li className="hover:underline cursor-pointer">Privacy</li>
+              <li className="hover:underline cursor-pointer">Cookies</li>
+              <li className="hover:underline cursor-pointer">
+                Modern Slavery Statement
+              </li>
+            </ul>
+          </div>
+
+          {/* Important Links */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Important Links</h4>
+            <ul className="text-sm space-y-1">
+              <li className="hover:underline cursor-pointer">Get help</li>
+              <li className="hover:underline cursor-pointer">
+                Add your restaurant
+              </li>
+              <li className="hover:underline cursor-pointer">Sign up to deliver</li>
+              <li className="hover:underline cursor-pointer">
+                Create a business account
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom footer bar */}
+        <div className="bg-black text-white text-xs py-4 px-4">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p>Order.uk Copyright 2024, All Rights Reserved.</p>
+            <div className="flex gap-4 mt-2 md:mt-0">
+              <span className="hover:underline cursor-pointer">Privacy Policy</span>
+              <span className="hover:underline cursor-pointer">Terms</span>
+              <span className="hover:underline cursor-pointer">Pricing</span>
+              <span className="hover:underline cursor-pointer">
+                Do not sell or share my personal information
+              </span>
+            </div>
+          </div>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
