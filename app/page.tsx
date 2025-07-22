@@ -13,6 +13,8 @@ import {
 } from 'react-icons/fa';
 import CustomerReviews from './components/Home/CustomerReviews';
 import SimilarRestaurants from './components/Home/SimilarRestaurants';
+import Header from './components/Home/Header';
+import BakerySlider from './components/Home/BakerySlider';
 
 export default function HomePage() {
   const categories = [
@@ -174,65 +176,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-black">
 
-      {/* Promo Bar */}
-      <div className="flex justify-between items-center px-4 py-2 bg-yellow-100 text-sm">
-        <p>🌟 Get 5% Off your first order, <span className="text-orange-600 font-semibold">Promo: ORDER5</span></p>
-        <p>📍 Regent Street, A4, A4201, London <span className="text-orange-500 underline ml-2 cursor-pointer">Change Location</span></p>
-      </div>
 
-      {/* Navbar */}
-      <div className="flex justify-between items-center p-4 shadow-sm text-sm">
-        <div className="flex gap-6 font-medium">
-          <span className="text-black">Home</span>
-          <span className="text-black">Special Offers</span>
-          <span className="text-orange-500 font-bold">Restaurants</span>
-          <span className="text-black">Track Order</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <button className="bg-black text-white px-4 py-1 rounded-full">Login/Signup</button>
-          <div className="bg-green-600 text-white px-3 py-1 rounded-full">23 Items</div>
-          <div className="bg-green-700 text-white px-3 py-1 rounded-full">GBP 79.89</div>
-        </div>
-      </div>
+     <Header/>
 
-      {/* McDonald's Banner */}
-      <div className="relative bg-black text-white rounded-xl overflow-hidden mt-6 mx-4 md:mx-10">
-        <div className="absolute inset-0 opacity-40">
-          <Image src="/Home/Group.jpg" alt="Background Burger" fill className="object-cover" />
-        </div>
-        <div className="relative z-10 flex flex-col md:flex-row justify-between items-center px-6 py-8 gap-6">
-          <div className="space-y-3 max-w-md">
-            <p className="text-sm text-white/70">I’m lovin’ it!</p>
-            <h1 className="text-3xl font-bold">McDonald’s East London</h1>
-            <div className="flex gap-4 flex-wrap text-sm">
-              <span className="bg-white text-black px-3 py-1 rounded-full">
-                🍔 Minimum Order: 12 GBP
-              </span>
-              <span className="bg-white text-black px-3 py-1 rounded-full">
-                🚲 Delivery in 20-25 Minutes
-              </span>
-            </div>
-            <button className="bg-orange-500 text-white font-semibold px-4 py-2 rounded-full text-sm">
-              🕒 Open until 3:00 AM
-            </button>
-          </div>
-          <div className="relative w-64">
-            <Image
-              src="/Home/Rectangle.png"
-              alt="Burger and Fries"
-              width={300}
-              height={200}
-              className="rounded-lg"
-            />
-            <div className="absolute top-2 left-2 bg-white text-black text-sm px-2 py-1 rounded shadow">
-              ⭐ 3.4 <span className="text-gray-500">(1,360 reviews)</span>
-            </div>
-          </div>
-        </div>
-      </div>
+     <BakerySlider/>
+
+
+
 
       {/* 🔥 Category Menu */}
-      <div className="bg-orange-500 py-3 px-4 mt-6 overflow-x-auto whitespace-nowrap">
+      {/* <div className="bg-orange-500 py-3 px-4 mt-6 overflow-x-auto whitespace-nowrap">
         <div className="flex gap-4">
           {categories.map((cat) => (
             <button
@@ -245,7 +198,7 @@ export default function HomePage() {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Search Heading */}
       <div className="px-4 md:px-10 mt-6 mb-4 flex justify-between items-center">
