@@ -87,7 +87,7 @@ export default function Header() {
         {/* Nav Bar - Now using height transition instead of opacity */}
         <nav
           className={`
-            hidden md:flex justify-center items-center space-x-8 text-sm font-medium border-b bg-white
+            hidden md:flex justify-center items-center space-x-8 text-sm font-medium  bg-white
             transition-all duration-300 ease-in-out overflow-hidden
             ${showNavVisible ? 'h-[48px]' : 'h-0 border-b-0'}
           `}
