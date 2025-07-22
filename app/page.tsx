@@ -203,11 +203,11 @@ export default function HomePage() {
       {/* Search Heading */}
       <div className="px-4 md:px-10 mt-6 mb-4 flex justify-between items-center">
         <h2 className="text-lg font-bold">All Offers from McDonald’s East London</h2>
-        <input
+        {/* <input
           type="text"
           placeholder="🔍 Search from menu..."
           className="border px-4 py-2 rounded-full text-sm outline-none w-64"
-        />
+        /> */}
       </div>
 
       {/* Offers Section */}

@@ -2,108 +2,112 @@
 
 import { useEffect, useState } from 'react';
 import {
-  FaChevronDown,
-  FaUser,
-  FaShoppingCart,
-  FaSearch,
+    FaChevronDown,
+    FaUser,
+    FaShoppingCart,
+    FaSearch,
 } from 'react-icons/fa';
 import { MdOutlineTrackChanges } from 'react-icons/md';
 
 export default function Header() {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [showNavVisible, setShowNavVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [showNavVisible, setShowNavVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNavVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        setShowNavVisible(true);
-      }
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setShowNavVisible(false);
+            } else if (currentScrollY < lastScrollY) {
+                setShowNavVisible(true);
+            }
 
-      setLastScrollY(currentScrollY);
-    };
+            setLastScrollY(currentScrollY);
+        };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
-  return (
-    <>
-      <header className="w-full fixed top-0 z-50 bg-white shadow-sm transition-all duration-300">
-        {/* Top Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white border-b">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2 mb-2 md:mb-0">
-            <img src="/pinkHeader/logo.avif" alt="Logo" className="h-12 w-auto" />
-            <img src="/pinkHeader/logoname.avif" alt="Bakingo" className="h-10 w-auto" />
-          </a>
+    return (
+        <>
+            <header className="w-full fixed top-0 z-50 bg-white shadow-sm transition-all duration-300">
+                {/* Top Bar */}
+                <div className="flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white border-b">
+                    {/* Logo */}
+                    <a href="/" className="flex items-center gap-2 mb-2 md:mb-0">
+                        <img src="/pinkHeader/logo.avif" alt="Logo" className="h-12 w-auto" />
+                        <img src="/pinkHeader/logoname.avif" alt="Bakingo" className="h-10 w-auto" />
+                    </a>
 
-          {/* Search */}
-          <div className="flex items-center w-full md:w-1/3 border border-pink-200 rounded-full px-3 py-1 bg-white shadow-sm mb-2 md:mb-0">
-            <FaSearch className="text-pink-400" />
-            <input
-              type="text"
-              placeholder="Search for cakes..."
-              className="flex-1 bg-transparent outline-none px-2 text-sm"
-            />
-          </div>
+                    {/* Search */}
+                    <div className="flex items-center w-full md:w-1/3 border border-pink-200 rounded-full px-3 py-1 bg-white shadow-sm mb-2 md:mb-0">
+                        <FaSearch className="text-pink-400" />
+                        <input
+                            type="text"
+                            placeholder="Search for cakes..."
+                            className="flex-1 bg-transparent outline-none px-2 text-sm"
+                        />
+                    </div>
 
-          {/* Icons */}
-          <div className="flex items-center gap-5 text-sm text-gray-700">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-pink-500">
-              <MdOutlineTrackChanges className="text-pink-500" />
-              <span>Track Order</span>
-            </div>
-            <div className="flex items-center gap-1 cursor-pointer hover:text-pink-500">
-              <FaShoppingCart className="text-pink-500" />
-              <span>Cart</span>
-            </div>
-            <div className="relative">
-              <button
-                onClick={() => setShowDropdown(!showDropdown)}
-                className="flex items-center gap-1 hover:text-pink-500"
-              >
-                <FaUser className="text-pink-500" />
-                <span>Login</span>
-                <FaChevronDown className="text-xs" />
-              </button>
+                    {/* Icons */}
+                    <div className="flex items-center gap-5 text-sm text-gray-700">
+                        <div className="flex items-center gap-1 cursor-pointer hover:text-pink-500">
+                            <MdOutlineTrackChanges className="text-pink-500" />
+                            <span>Track Order</span>
+                        </div>
+                        <div className="flex items-center gap-1 cursor-pointer hover:text-pink-500">
+                            <FaShoppingCart className="text-pink-500" />
+                            <span>Cart</span>
+                        </div>
+                        <div className="relative">
+                            <button
+                                onClick={() => setShowDropdown(!showDropdown)}
+                                className="flex items-center gap-1 hover:text-pink-500"
+                            >
+                                <FaUser className="text-pink-500" />
+                                <span>Login</span>
+                                <FaChevronDown className="text-xs" />
+                            </button>
 
-              {showDropdown && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md text-sm z-50">
-                  <a className="block px-4 py-2 hover:bg-pink-50" href="#">My Orders</a>
-                  <a className="block px-4 py-2 hover:bg-pink-50" href="#">Wishlist</a>
-                  <a className="block px-4 py-2 hover:bg-pink-50" href="#">Manage Address</a>
-                  <a className="block px-4 py-2 hover:bg-pink-50 text-pink-500" href="#">Logout</a>
+                            {showDropdown && (
+                                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md text-sm z-50">
+                                    <a className="block px-4 py-2 hover:bg-pink-50" href="#">My Orders</a>
+                                    <a className="block px-4 py-2 hover:bg-pink-50" href="#">Wishlist</a>
+                                    <a className="block px-4 py-2 hover:bg-pink-50" href="#">Manage Address</a>
+                                    <a className="block px-4 py-2 hover:bg-pink-50 text-pink-500" href="#">Logout</a>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
-              )}
-            </div>
-          </div>
-        </div>
 
-        {/* Nav Bar - Now using height transition instead of opacity */}
-        <nav
-          className={`
-            hidden md:flex justify-center items-center space-x-8 text-sm font-medium  bg-white
-            transition-all duration-300 ease-in-out overflow-hidden
-            ${showNavVisible ? 'h-[48px]' : 'h-0 border-b-0'}
-          `}
-        >
-          {['CAKES', 'Theme Cakes', 'By Relationship', 'Desserts', 'Birthday','Hampers', 'Anniversary', 'Occasion', 'Customized', 'CONTACT'].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-black hover:text-pink-500 transition uppercase tracking-wide"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-      </header>
+                {/* Nav Bar - Now using height transition instead of opacity */}
+                <nav
+                        className={`
+        hidden md:flex justify-center items-center space-x-8 text-sm font-stylish bg-pink-300
+        transition-all duration-300 ease-in-out overflow-hidden
+        ${showNavVisible ? 'h-[48px]' : 'h-0 border-b-0'}
+    `}
+                    >
+                    {[
+                        'CAKES', 'Theme Cakes', 'By Relationship', 'Desserts', 'Birthday',
+                        'Hampers', 'Anniversary', 'Occasion', 'Customized', 'CONTACT'
+                    ].map((item) => (
+                        <a
+                            key={item}
+                            href="#"
+                            className="text-white hover:text-yellow-300 transition uppercase tracking-wide font-serif font-bold"
+                        >
+                            {item}
+                        </a>
+                    ))}
+                </nav>
 
-    </>
-  );
+            </header>
+
+        </>
+    );
 }

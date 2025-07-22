@@ -16,7 +16,7 @@ const BakerySlider = () => {
   ];
 
   return (
-    <div className="relative bg-black text-white rounded-xl overflow-hidden mt-[120px]  ">
+    <div className="relative bg-black text-white rounded-b-2xl overflow-hidden mt-[120px]  ">
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation
