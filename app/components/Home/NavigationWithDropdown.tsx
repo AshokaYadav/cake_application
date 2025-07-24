@@ -94,7 +94,7 @@ const HeaderWithDropdowns = () => {
             <ul className="space-y-2 text-sm">
               {item.dropdownItems.map((dropItem, idx) => (
                 <li key={idx}>
-                  <Link href={toSlug(dropItem)}>
+                  <Link href={toSlug('superhero-cakes')}>
                     <span className="hover:text-pink-600 cursor-pointer block">
                       {dropItem}
                     </span>
