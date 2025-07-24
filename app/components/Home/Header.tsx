@@ -8,6 +8,7 @@ import {
     FaSearch,
 } from 'react-icons/fa';
 import { MdOutlineTrackChanges } from 'react-icons/md';
+import NavigationWithDropdown from './NavigationWithDropdown';
 
 export default function Header() {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -35,12 +36,13 @@ export default function Header() {
         <>
             <header className="w-full fixed top-0 z-50 bg-white shadow-sm transition-all duration-300">
                 {/* Top Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between px-4 py-3 bg-white border-b">
+                <div className="flex flex-col md:flex-row items-center justify-between px-4  bg-white border-b">
                     {/* Logo */}
-                    <a href="/" className="flex items-center gap-2 mb-2 md:mb-0">
-                        <img src="/pinkHeader/logo.avif" alt="Logo" className="h-12 w-auto" />
-                        <img src="/pinkHeader/logoname.avif" alt="Bakingo" className="h-10 w-auto" />
+                    <a href="/" className="flex items-center gap-4 mb-2 md:mb-0">
+                        <img src="/pinkHeader/logoname.avif" alt="Logo" className="h-16 w-auto  pt-2" />
+                        <img src="/pinkHeader/logo.avif" alt="Bakingo" className="h-16 w-auto " />
                     </a>
+
 
                     {/* Search */}
                     <div className="flex items-center w-full md:w-1/3 border border-pink-200 rounded-full px-3 py-1 bg-white shadow-sm mb-2 md:mb-0">
@@ -84,27 +86,7 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* Nav Bar - Now using height transition instead of opacity */}
-                <nav
-                        className={`
-        hidden md:flex justify-center items-center space-x-8 text-sm font-stylish bg-pink-300
-        transition-all duration-300 ease-in-out overflow-hidden
-        ${showNavVisible ? 'h-[48px]' : 'h-0 border-b-0'}
-    `}
-                    >
-                    {[
-                        'CAKES', 'Theme Cakes', 'By Relationship', 'Desserts', 'Birthday',
-                        'Hampers', 'Anniversary', 'Occasion', 'Customized', 'CONTACT'
-                    ].map((item) => (
-                        <a
-                            key={item}
-                            href="#"
-                            className="text-white hover:text-yellow-300 transition uppercase tracking-wide font-serif font-bold"
-                        >
-                            {item}
-                        </a>
-                    ))}
-                </nav>
+                <NavigationWithDropdown/>
 
             </header>
 
